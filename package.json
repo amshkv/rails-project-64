@@ -1,6 +1,10 @@
 {
   "name": "app",
   "private": "true",
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged --relative",
+    "prepare-commit-msg": "exec < /dev/tty && gitmoji --hook $1 $2 || true"
+  },
   "dependencies": {
     "@hotwired/stimulus": "^3.1.1",
     "@hotwired/turbo-rails": "^7.2.4",
@@ -15,6 +19,8 @@
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   },
   "devDependencies": {
+    "lint-staged": "^13.0.3",
+    "simple-git-hooks": "^2.8.1",
     "stylelint": "^14.15.0",
     "stylelint-config-recommended-scss": "^8.0.0"
   }

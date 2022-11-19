@@ -15,4 +15,7 @@ lint-rubocop:
 test:
 	bundle exec rake test
 
+install-hooks:
+	npx simple-git-hooks
+
 .PHONY: test
