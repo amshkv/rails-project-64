@@ -1,0 +1,24 @@
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: enable
+  SuggestExtensions:
+    rubocop-rails: true
+    rubocop-performance: true
+    rubocop-rake: true
+
+Style/Documentation:
+  Enabled: false
+
+# Style/StringLiterals:
+#   Enabled: true
+#   EnforcedStyle: double_quotes
+
+# Style/StringLiteralsInInterpolation:
+#   Enabled: true
+#   EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Enabled: false
