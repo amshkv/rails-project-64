@@ -53,6 +53,8 @@ gem 'bootsnap', require: false
 gem 'sentry-rails'
 gem 'sentry-ruby'
 
+gem 'slim-rails'
+
 group :production do
   gem 'pg'
 end
