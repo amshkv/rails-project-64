@@ -114,6 +114,9 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
+    minitest-power_assert (0.3.1)
+      minitest
+      power_assert (>= 1.1)
     msgpack (1.6.0)
     net-imap (0.3.1)
       net-protocol
@@ -132,6 +135,7 @@ GEM
     parser (3.1.2.1)
       ast (~> 2.4.1)
     pg (1.4.4)
+    power_assert (2.0.2)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -264,6 +268,7 @@ DEPENDENCIES
   debug
   jbuilder
   jsbundling-rails
+  minitest-power_assert
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)
