@@ -23,6 +23,11 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
+    - name: Set up NodeJS
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        yarn: cache
     - name: Run lint
       run: make lint
     - name: Run test
