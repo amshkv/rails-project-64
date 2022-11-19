@@ -30,7 +30,7 @@ jobs:
       run: yarn install
     - name: Run lint
       run: make lint
-    - name: Compile assets
+    - name: Compile assets # NOTE: без этого шага не завелось, но внутри есть команда yarn install, мб поднять выше?
       run: bundle exec rake assets:precompile
     - name: Run test
       run: make test
