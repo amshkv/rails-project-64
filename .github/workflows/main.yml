@@ -1,0 +1,29 @@
+name: Main CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Main CI
+    strategy:
+      matrix:
+        ruby:
+          - '3.1.2'
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+    - name: Run lint
+      run: make lint
+    - name: Run test
+      run: make test
