@@ -1,7 +1,7 @@
 install:
 	bundle install
 
-lint: lint-rubocop lint-slim lint-style
+lint: lint-rubocop lint-slim lint-js lint-style
 
 lint-slim:
 	bundle exec slim-lint app/views
