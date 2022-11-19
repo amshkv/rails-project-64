@@ -18,4 +18,7 @@ test:
 install-hooks:
 	npx simple-git-hooks
 
+start:
+	bundle exec rails server
+
 .PHONY: test
