@@ -27,7 +27,9 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '16'
-        yarn: cache
+        cache: 'yarn'
+    - name: Install dependencies
+      run: yarn install
     - name: Run lint
       run: make lint
     - name: Run test
