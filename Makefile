@@ -1,6 +1,9 @@
 install:
 	bundle install
 
+setup:
+	bin/setup
+
 lint: lint-rubocop lint-slim lint-js lint-style
 
 lint-slim:
@@ -23,5 +26,11 @@ install-hooks:
 
 start:
 	bundle exec rails server
+
+console:
+	bundle exec rails console
+
+fixture-load:
+	bundle exec rake db:fixtures:load
 
 .PHONY: test
