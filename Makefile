@@ -18,6 +18,14 @@ lint-rubocop:
 lint-js:
 	npx eslint app/javascript
 
+i18n-fix: i18n-normalize i18n-missing
+
+i18n-normalize:
+	bundle exec i18n-tasks normalize
+
+i18n-missing:
+	bundle exec i18n-tasks missing
+
 test:
 	bundle exec rake test
 
