@@ -24,7 +24,7 @@ data:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
   write:
     ## For example, write devise and simple form keys to their respective files:
-    - ['{devise, simple_form}.*', 'config/locales/\1.%{locale}.yml']
+    # - ['{devise, simple_form}.*', 'config/locales/\1.%{locale}.yml']
     ## Catch-all default:
     - config/locales/%{locale}.yml
 
@@ -32,7 +32,7 @@ data:
   # This data is not considered unused and is never written to.
   external:
     ## Example (replace %#= with %=):
-    # - "<%#= %x[bundle info vagrant --path].chomp %>/templates/locales/%{locale}.yml"
+    - "<%= %x[bundle info devise-i18n --path].chomp %>/rails/locales/en.yml" # FIXME: use %{locale} instead of en
 
   ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
   # router: conservative_router
@@ -119,8 +119,8 @@ ignore_missing:
 ## Consider these keys used:
 ignore_unused:
 # - 'activerecord.attributes.*'
-- '{devise,kaminari,will_paginate}.*'
-- 'errors.messages.{already_confirmed,confirmation_period_expired,expired,not_found,not_locked,not_saved}' # default Devise errors
+# - '{devise,kaminari,will_paginate}.*'
+# - 'errors.messages.{already_confirmed,confirmation_period_expired,expired,not_found,not_locked,not_saved}' # default Devise errors
 - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'
 - 'simple_form.{error_notification,required}.:'
