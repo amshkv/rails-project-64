@@ -57,6 +57,8 @@ gem 'slim-rails'
 
 gem 'devise'
 
+gem 'rails-i18n'
+
 group :production do
   gem 'pg'
 end
@@ -69,6 +71,8 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
 
   gem 'slim_lint'
+
+  gem 'i18n-debug'
 end
 
 group :development do
@@ -89,6 +93,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'i18n-tasks'
   gem 'minitest-power_assert'
   gem 'selenium-webdriver'
   gem 'webdrivers'
