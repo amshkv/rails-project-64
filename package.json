@@ -3,7 +3,8 @@
   "private": "true",
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged --relative",
-    "prepare-commit-msg": "exec < /dev/tty && gitmoji --hook $1 $2 || true"
+    "prepare-commit-msg": "exec < /dev/tty && gitmoji --hook $1 $2 || true",
+    "pre-push": "bundle exec rake test"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.1.1",
