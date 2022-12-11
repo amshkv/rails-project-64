@@ -59,6 +59,8 @@ gem 'devise'
 
 gem 'rails-i18n'
 
+gem 'simple_form'
+
 group :production do
   gem 'pg'
 end
