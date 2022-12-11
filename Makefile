@@ -15,6 +15,9 @@ lint-style:
 lint-rubocop:
 	bundle exec rubocop
 
+lint-rubocop-fix:
+	bundle exec rubocop -A
+
 lint-js:
 	npx eslint app/javascript
 
