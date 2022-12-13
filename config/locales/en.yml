@@ -1,5 +1,8 @@
 ---
 en:
+  deathly_hallows: Deathly Hallows
+  are_you_sure: Are you sure?
+
   layouts:
     header:
       home: Home

@@ -1,0 +1,15 @@
+---
+en:
+  devise:
+    sessions:
+      new:
+        sign_in: Sign in to your account
+        dont_have_account_html: Don’t have an account? %{link}
+        sign_up: Sign up
+    registrations:
+      new:
+        sign_up: Sign up for an account
+        sign_in: Sign in
+        already_have_account_html: Already registered? %{link} to your account
+      edit:
+        edit: Edit your account

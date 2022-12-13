@@ -7,3 +7,14 @@ en:
     required:
       html: <span title="required">*</span>
     'yes': 'Yes'
+    placeholders:
+      user:
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        current_password: 'Current password'
+    hints:
+      user:
+        edit:
+          password: "Leave blank if you don't want to change it"
+          current_password: 'We need your current password to confirm your changes'
