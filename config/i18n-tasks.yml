@@ -53,8 +53,9 @@ data:
 # Find translate calls
 search:
   ## Paths or `File.find` patterns to search in:
-  # paths:
-  #  - app/
+  paths:
+   - app/
+   - config/
 
   ## Root directories for relative keys resolution.
   # relative_roots:
@@ -125,7 +126,6 @@ ignore_unused:
 - 'simple_form.{yes,no}'
 - 'simple_form.{placeholders,hints,labels}.*'
 - 'simple_form.{error_notification,required}.:'
-- 'close'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
