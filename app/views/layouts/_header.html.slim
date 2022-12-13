@@ -24,6 +24,6 @@ header.flex-shrink-0
                   data: { 'turbo-method': :delete }, class: 'nav-link'
           - else
             = link_to t('.sign_in'), new_user_session_path,
-              class: class_names('btn btn-outline-primary me-2', active: current_page?(new_user_session_path))
+              class: class_names('btn btn-outline-light me-2', active: current_page?(new_user_session_path))
             = link_to t('.sign_up'), new_user_registration_path,
               class: class_names('btn btn-primary', actvie: current_page?(new_user_registration_path))
