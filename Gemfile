@@ -59,6 +59,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 
+gem 'flash_rails_messages'
 gem 'rails-i18n'
 
 gem 'simple_form'

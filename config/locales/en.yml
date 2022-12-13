@@ -2,6 +2,7 @@
 en:
   application_name: Daily Prophet
   are_you_sure: Are you sure?
+  close: Close
   daily_prophet: Daily Prophet
   layouts:
     application:

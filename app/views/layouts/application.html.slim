@@ -12,8 +12,8 @@ html
   body.min-vh-100.d-flex.flex-column
     = render 'layouts/header'
 
-    = notice
-    = alert
+    .container-fluid
+      = render_flash_messages dismissible: true
 
     main.flex-grow-1.flex-shrink-0
       = yield
