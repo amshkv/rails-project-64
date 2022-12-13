@@ -1,9 +1,10 @@
 header.flex-shrink-0
-  nav.navbar.navbar-expand-md.bg-primary.bg-opacity-25
+  nav.navbar.navbar-expand-md.navbar-dark.bg-dark.bg-opaciy-75
     .container-fluid
       = link_to root_path, class: 'navbar-brand d-flex align-items-center' do
-        = image_tag 'deathly_hallows.svg', width: 40, height: 35, alt: t('deathly_hallows'), class: 'd-inline-block'
-        = t('.collective_blog')
+        = image_tag 'daily_prophet_logo .png', width: 30, height: 30,
+          alt: t('daily_prophet'), class: 'd-inline-block me-2'
+        = t('application_name')
 
       button.navbar-toggler[type='button' data-bs-toggle='collapse' data-bs-target='#navbarScroll'
         aria-controls='navbarScroll' aria-expanded='false' aria-label='Toggle navigation']

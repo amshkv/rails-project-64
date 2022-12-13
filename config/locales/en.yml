@@ -1,12 +1,12 @@
 ---
 en:
+  application_name: Daily Prophet
   are_you_sure: Are you sure?
-  deathly_hallows: Deathly Hallows
+  daily_prophet: Daily Prophet
   layouts:
     application:
       copyright: "%{year} Collective Blog"
     header:
-      collective_blog: Collective Blog
       edit_profile: Edit Profile
       sign_in: Sign in
       sign_out: Sign out
