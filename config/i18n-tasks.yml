@@ -121,8 +121,9 @@ ignore_unused:
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'errors.messages.{already_confirmed,confirmation_period_expired,expired,not_found,not_locked,not_saved}' # default Devise errors
+- 'helpers.submit.*'
 - 'simple_form.{yes,no}'
-# - 'simple_form.{placeholders,hints,labels}.*'
+- 'simple_form.{placeholders,hints,labels}.*'
 - 'simple_form.{error_notification,required}.:'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
