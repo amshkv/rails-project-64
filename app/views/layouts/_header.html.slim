@@ -1,7 +1,28 @@
-= link_to t('.home'), root_path
+header.flex-shrink-0
+  nav.navbar.navbar-expand-md.bg-primary.bg-opacity-25
+    .container-fluid
+      = link_to root_path, class: 'navbar-brand d-flex align-items-center' do
+        = image_tag 'deathly_hallows.svg', width: 40, height: 35, alt: t('deathly_hallows'), class: 'd-inline-block'
+        = t('.collective_blog')
 
-- if user_signed_in?
-  = link_to t('.sign_out'), destroy_user_session_path, data: { 'turbo-method': :delete }
-- else
-  = link_to t('.sign_in'), new_user_session_path
-  = link_to t('.sign_up'), new_user_registration_path
+      button.navbar-toggler[type='button' data-bs-toggle='collapse' data-bs-target='#navbarScroll'
+        aria-controls='navbarScroll' aria-expanded='false' aria-label='Toggle navigation']
+        span.navbar-toggler-icon
+
+      .collapse.navbar-collapse#navbarScroll
+        ul.navbar-nav.me-auto.mb-2.mb-md-0
+
+        .text-md-end
+          - if user_signed_in?
+            ul.navbar-nav.mb-2.mb-md-0
+              li.nav-item
+               = link_to t('.edit_profile'), edit_user_registration_path,
+                class: class_names('nav-link', active: current_page?(edit_user_registration_path))
+              li.nav-item
+                = link_to t('.sign_out'), destroy_user_session_path,
+                  data: { 'turbo-method': :delete }, class: 'nav-link'
+          - else
+            = link_to t('.sign_in'), new_user_session_path,
+              class: class_names('btn btn-outline-primary me-2', active: current_page?(new_user_session_path))
+            = link_to t('.sign_up'), new_user_registration_path,
+              class: class_names('btn btn-primary', actvie: current_page?(new_user_registration_path))
