@@ -4,8 +4,11 @@ en:
   are_you_sure: Are you sure?
 
   layouts:
+    application:
+      copyright: "%{year} Collective Blog"
     header:
-      home: Home
+      collective_blog: Collective Blog
+      edit_profile: Edit Profile
       sign_in: Sign in
       sign_out: Sign out
       sign_up: Sign up
