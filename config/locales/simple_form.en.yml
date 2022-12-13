@@ -3,18 +3,18 @@ en:
   simple_form:
     error_notification:
       default_message: 'Please review the problems below:'
-    'no': 'No'
-    required:
-      html: <span title="required">*</span>
-    'yes': 'Yes'
-    placeholders:
-      user:
-        email: 'Email'
-        password: 'Password'
-        password_confirmation: 'Password confirmation'
-        current_password: 'Current password'
     hints:
       user:
         edit:
-          password: "Leave blank if you don't want to change it"
-          current_password: 'We need your current password to confirm your changes'
+          current_password: We need your current password to confirm your changes
+          password: Leave blank if you don't want to change it
+    'no': 'No'
+    placeholders:
+      user:
+        current_password: Current password
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+    required:
+      html: <span title="required">*</span>
+    'yes': 'Yes'

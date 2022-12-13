@@ -1,8 +1,7 @@
 ---
 en:
-  deathly_hallows: Deathly Hallows
   are_you_sure: Are you sure?
-
+  deathly_hallows: Deathly Hallows
   layouts:
     application:
       copyright: "%{year} Collective Blog"
