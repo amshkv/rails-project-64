@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+spells:
+  name: Spells
+
+magic_lottery:
+  name: Magic Lottery
+
+hocus_pocus:
+  name: Hocus Pocus
+
+magic_news:
+  name: Magic News
