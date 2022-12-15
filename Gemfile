@@ -78,6 +78,8 @@ group :development, :test do
   gem 'slim_lint'
 
   gem 'i18n-debug'
+
+  gem 'faker'
 end
 
 group :development do
