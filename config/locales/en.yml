@@ -19,5 +19,7 @@ en:
   posts:
     edit:
       edit_post: 'Edit Post: %{title}'
+    index:
+      no_posts: No posts yet
     new:
       new_post: New Post
