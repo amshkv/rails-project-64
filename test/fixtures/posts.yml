@@ -1,9 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: MyText
+  title: <%= Faker::Movies::HarryPotter.book %>
+  body: <%= Faker::Movies::HarryPotter.quote %>
+  category: spells
+  creator: harry
 
 two:
-  title: MyString
-  body: MyText
+  title: <%= Faker::Movies::HarryPotter.book %>
+  body: <%= Faker::Movies::HarryPotter.quote %>
+  category: spells
+  creator: harry
+
+three:
+  title: <%= Faker::Movies::HarryPotter.book %>
+  body: <%= Faker::Movies::HarryPotter.quote %>
+  category: hocus_pocus
+  creator: hermione
