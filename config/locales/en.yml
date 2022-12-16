@@ -4,11 +4,20 @@ en:
   are_you_sure: Are you sure?
   close: Close
   daily_prophet: Daily Prophet
+  destroy: Destroy
+  edit: Edit
   layouts:
     application:
       copyright: "%{year} Collective Blog"
     header:
+      all_posts: All Posts
       edit_profile: Edit Profile
+      new_post: New Post
       sign_in: Sign in
       sign_out: Sign out
       sign_up: Sign up
+  posts:
+    edit:
+      edit_post: 'Edit Post: %{title}'
+    new:
+      new_post: New Post

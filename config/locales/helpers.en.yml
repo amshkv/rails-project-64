@@ -2,6 +2,9 @@
 en:
   helpers:
     submit:
+      post:
+        create: Create Post
+        update: Update Post
       user:
         create: Sign in
         update: Update Profile

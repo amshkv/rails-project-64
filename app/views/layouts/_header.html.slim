@@ -12,6 +12,12 @@ header.flex-shrink-0
 
       .collapse.navbar-collapse#navbarScroll
         ul.navbar-nav.me-auto.mb-2.mb-md-0
+          li.nav-item
+            = link_to t('.all_posts'), root_path, class: class_names('nav-link', active: current_page?(root_path))
+          - if user_signed_in?
+            li.nav-item
+              = link_to t('.new_post'), new_post_path,
+                class: class_names('nav-link', active: current_page?(new_post_path))
 
         .text-md-end
           - if user_signed_in?

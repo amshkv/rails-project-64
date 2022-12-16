@@ -1,0 +1,11 @@
+---
+en:
+  posts:
+    create:
+      failure: Post could not be created
+      success: Post created successfully
+    destroy:
+      success: Post deleted successfully
+    update:
+      failure: Post could not be updated
+      success: Post updated successfully

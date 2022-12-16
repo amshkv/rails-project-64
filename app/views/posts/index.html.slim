@@ -1,1 +1,7 @@
-| Hello, Wolrd!
+.container.my-5
+  h1.mb-5 = t('application_name')
+  - @posts.each do |post|
+    h2
+      = link_to post.title, post_path(post)
+    p = post.body
+    hr.my-5
