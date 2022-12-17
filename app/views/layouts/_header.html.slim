@@ -27,7 +27,7 @@ header.flex-shrink-0
                 class: class_names('nav-link', active: current_page?(edit_user_registration_path))
               li.nav-item
                 = link_to t('.sign_out'), destroy_user_session_path,
-                  data: { 'turbo-method': :delete }, class: 'nav-link'
+                  data: { turbo_method: :delete }, class: 'nav-link'
           - else
             = link_to t('.sign_in'), new_user_session_path,
               class: class_names('btn btn-outline-light me-2', active: current_page?(new_user_session_path))
