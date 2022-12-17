@@ -10,7 +10,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     @attrs = {
       title: Faker::Movies::HarryPotter.book,
-      body: Faker::Movies::HarryPotter.quote,
+      body: [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' '),
       category_id: categories(:spells).id
     }
   end

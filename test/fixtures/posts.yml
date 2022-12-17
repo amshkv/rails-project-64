@@ -23,18 +23,18 @@
 
 one:
   title: <%= Faker::Movies::HarryPotter.book %>
-  body: <%= Faker::Movies::HarryPotter.quote %>
+  body: <%= [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' ') %>
   category: spells
   creator: harry
 
 two:
   title: <%= Faker::Movies::HarryPotter.book %>
-  body: <%= Faker::Movies::HarryPotter.quote %>
+  body: <%= [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' ') %>
   category: spells
   creator: harry
 
 three:
   title: <%= Faker::Movies::HarryPotter.book %>
-  body: <%= Faker::Movies::HarryPotter.quote %>
+  body: <%= [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' ') %>
   category: hocus_pocus
   creator: hermione
