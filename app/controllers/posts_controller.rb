@@ -21,8 +21,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    params = { creator: current_user }.merge(permitted_params)
-    @post = Post.new(params)
+    @post = current_user.posts.build(permitted_params)
 
     if @post.save
       redirect_to @post, notice: I18n.t('posts.create.success')
