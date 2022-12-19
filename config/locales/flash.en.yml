@@ -6,6 +6,7 @@ en:
       success: Post created successfully
     destroy:
       success: Post deleted successfully
+    only_creator: Post can only be edited or deleted by its creator
     update:
       failure: Post could not be updated
       success: Post updated successfully

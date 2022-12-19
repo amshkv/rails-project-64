@@ -2,6 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
+  before_action :only_creator, only: %i[edit update destroy]
 
   def index
     @posts = Post.all
@@ -52,5 +53,11 @@ class PostsController < ApplicationController
 
   def permitted_params
     params.require(:post).permit(:title, :body, :category_id)
+  end
+
+  def only_creator
+    @post = Post.find(params[:id])
+
+    redirect_to root_path, alert: I18n.t('posts.only_creator') unless @post.creator == current_user
   end
 end
