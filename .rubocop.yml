@@ -1,7 +1,7 @@
 ---
 
 AllCops:
-  TargetRubyVersion: 3.1.3
+  TargetRubyVersion: 3.2.2
   NewCops: enable
   SuggestExtensions:
     rubocop-rails: true
