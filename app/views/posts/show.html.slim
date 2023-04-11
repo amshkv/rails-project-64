@@ -3,8 +3,8 @@
   p = @post.body
   p
     = @post.creator.email
-    |
-    = @post.created_at
+    '
+    = l(@post.created_at, format: :long)
 
   p
     - if @post.creator == current_user
