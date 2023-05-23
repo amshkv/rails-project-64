@@ -3,6 +3,7 @@
 # Table name: post_comments
 #
 #  id         :integer          not null, primary key
+#  ancestry   :string
 #  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -11,8 +12,9 @@
 #
 # Indexes
 #
-#  index_post_comments_on_post_id  (post_id)
-#  index_post_comments_on_user_id  (user_id)
+#  index_post_comments_on_ancestry  (ancestry)
+#  index_post_comments_on_post_id   (post_id)
+#  index_post_comments_on_user_id   (user_id)
 #
 # Foreign Keys
 #
@@ -29,3 +31,20 @@ two:
   content: <%= Faker::Movies::HarryPotter.quote %>
   post: two
   user: hermione
+
+with_comments:
+  content: this is comment with comments
+  user: harry
+  post: one
+
+nested:
+  content: commented comment
+  user: hermione
+  post: one
+  ancestry: <%= ActiveRecord::FixtureSet.identify(:with_comments) %>
+
+deep_nested:
+  content: deep comment
+  user: harry
+  post: one
+  ancestry: <%= [ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>
