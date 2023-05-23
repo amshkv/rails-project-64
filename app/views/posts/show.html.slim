@@ -25,13 +25,13 @@
   .mt-4
     / bullet ругается на этот запрос без includes, но кажется тут мы во вьюхе строим запрос, что нехорошо
       какой правильный путь? сделать в контроллере переменную @post_commetns где как раз брать комменты с include?
-    - @post.comments.includes([:user]).each do |comment|
+    - @post.comments.roots.includes([:user]).each do |comment|
       - if comment.id? # кажется такая проверка лучше (cо знаком вопроса?), чем проверка на id?
         - unless @post.comments.first == comment # тут наверное лучше брать each.with_index и проверять что idx.zero?
           hr
+        = render 'comment', comment:
 
-        p.fs-5.mb-2 = comment.content
-        .small
-          = comment.user.email
-          span.mx-2 |
-          = l(comment.created_at, format: :long)
+        - comment.children.each do |children_comment|
+          .ms-3
+            hr
+            = render 'comment', comment: children_comment
