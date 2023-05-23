@@ -80,6 +80,8 @@ group :development, :test do
   gem 'i18n-debug'
 
   gem 'faker'
+
+  gem 'bullet'
 end
 
 group :development do

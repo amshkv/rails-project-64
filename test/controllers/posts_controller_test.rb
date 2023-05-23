@@ -21,6 +21,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
+    # TODO: почему-то не работает bullet для этого теста, но срабатывает для других ситуаций
     get post_url(@post)
     assert_response :success
   end

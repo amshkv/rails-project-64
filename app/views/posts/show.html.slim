@@ -23,6 +23,8 @@
       = f.button :submit, class: 'btn-primary'
 
   .mt-4
+    / bullet ругается на этот запрос без includes, но кажется тут мы во вьюхе строим запрос, что нехорошо
+      какой правильный путь? сделать в контроллере переменную @post_commetns где как раз брать комменты с include?
     - @post.comments.each do |comment|
       - if comment.id? # кажется такая проверка лучше (cо знаком вопроса?), чем проверка на id?
         - unless @post.comments.first == comment # тут наверное лучше брать each.with_index и проверять что idx.zero?
