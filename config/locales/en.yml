@@ -23,3 +23,5 @@ en:
       no_posts: No posts yet
     new:
       new_post: New Post
+    show:
+      comments: Comments

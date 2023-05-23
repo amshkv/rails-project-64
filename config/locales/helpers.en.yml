@@ -5,6 +5,8 @@ en:
       post:
         create: Create Post
         update: Update Post
+      post_comment:
+        create: Add Comment
       user:
         create: Sign in
         update: Update Profile

@@ -11,3 +11,25 @@
       = link_to t('edit'), edit_post_path(@post), class: 'btn btn-primary me-2'
       = link_to t('destroy'), post_path(@post), data: { turbo_method: :delete, turbo_confirm: t('are_you_sure') },
         class: 'btn btn-danger'
+
+  h2 = t('.comments')
+
+  - if user_signed_in?
+    = simple_form_for @comment, url: post_comments_path(@post) do |f|
+      / TODO: разобраться, как работают ошибки валидации в этой форме
+      = f.error_notification
+      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+      = f.input :content, label: false, input_html: { placeholder: 'Comment' }
+      = f.button :submit, class: 'btn-primary'
+
+  .mt-4
+    - @post.comments.each do |comment|
+      - if comment.id? # кажется такая проверка лучше (cо знаком вопроса?), чем проверка на id?
+        - unless @post.comments.first == comment # тут наверное лучше брать each.with_index и проверять что idx.zero?
+          hr
+
+        p.fs-5.mb-2 = comment.content
+        .small
+          = comment.user.email
+          span.mx-2 |
+          = l(comment.created_at, format: :long)

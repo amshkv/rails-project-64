@@ -25,6 +25,7 @@
 class Post < ApplicationRecord
   belongs_to :category
   belongs_to :creator, class_name: 'User'
+  has_many :comments, dependent: :destroy, class_name: 'PostComment'
 
   validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true, length: { minimum: 30 }
