@@ -5,8 +5,8 @@ require 'test_helper'
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @post = posts(:one)
-    @user = users(:harry)
-    sign_in(@user)
+    user = users(:harry)
+    sign_in(user)
 
     @attrs = {
       title: Faker::Movies::HarryPotter.book,
