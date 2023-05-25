@@ -3,26 +3,42 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
-  test 'should create comment' do
-    post = posts(:one)
+  setup do
+    @post = posts(:one)
     user = users(:harry)
     sign_in(user)
-
-    attrs = {
-      content: Faker::Movies::HarryPotter.quote
-    }
-
-    old_post_comments_count = post.comments.count
-
-    post post_comments_path(post), params: { post_comment: attrs }
-    assert_response :redirect
-
-    post.reload
-
-    # NOTE: что-то хз как правильно проверить что коммент создался у поста (проверка на +1 может и лишняя)
-    assert { post.comments.count == old_post_comments_count + 1 }
-    assert { post.comments.last.content == attrs[:content] }
   end
 
-  # TODO: нужен тест на вложенные комменты? что мы им проверим, что коммент создался к родителю, а не к посту?
+  test 'should create comment with parent_id' do
+    parent = @post.comments.first
+
+    attrs = {
+      content: Faker::Movies::HarryPotter.quote,
+      parent_id: parent.id
+    }
+
+    post post_comments_path(@post), params: { post_comment: attrs }
+    assert_response :redirect
+
+    @post.reload
+
+    comment = @post.comments.find_by(content: attrs[:content])
+    assert { comment }
+    assert { comment.parent = parent }
+  end
+
+  test 'should create comment without parent_id' do
+    attrs = {
+      content: Faker::Movies::HarryPotter.quote,
+      parent_id: nil
+    }
+
+    post post_comments_path(@post), params: { post_comment: attrs }
+    assert_response :redirect
+
+    @post.reload
+
+    comment = @post.comments.find_by(content: attrs[:content])
+    assert { comment }
+  end
 end
