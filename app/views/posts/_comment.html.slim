@@ -15,7 +15,7 @@ div
   - if user_signed_in?
     .collapse id="collapse-#{comment.id}"
       .pt-2
-        = render 'comment_form', new_comment:, post: comment.post, parent_id: comment.id
+        = render 'comment_form', new_comment:, post: new_comment.post, parent_id: comment.id
   hr
 
   .ms-3
