@@ -1,4 +1,4 @@
-= simple_form_for comment, url: post_comments_path(post) do |f|
+= simple_form_for new_comment, url: post_comments_path(post) do |f|
   / TODO: разобраться, как работают ошибки валидации в этой форме
   / = f.error_notification
   / = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?

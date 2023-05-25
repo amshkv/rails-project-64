@@ -1,4 +1,4 @@
-div class=class_names('ms-3': block_given?)
+div
   p.fs-5.mb-2 = comment.content
   .small
     = comment.user.email
@@ -15,7 +15,9 @@ div class=class_names('ms-3': block_given?)
   - if user_signed_in?
     .collapse id="collapse-#{comment.id}"
       .pt-2
-        = render 'comment_form', comment: comment.post.comments.build, post: comment.post, parent_id: comment.id
-
+        = render 'comment_form', new_comment:, post: comment.post, parent_id: comment.id
   hr
-  = yield
+
+  .ms-3
+    - comment.children.map do |c|
+      = render 'comment', comment: c, new_comment:

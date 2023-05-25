@@ -18,8 +18,8 @@
     p = t('.not_yet')
 
   - if user_signed_in?
-    = render 'comment_form', comment: @comment, post: @post, parent_id: nil
+    = render 'comment_form', new_comment: @new_comment, post: @post, parent_id: nil
 
   .mt-4
     - @root_post_comments.each do |comment|
-      == render_nested_comments(comment)
+      = render 'comment', comment:, new_comment: @new_comment
