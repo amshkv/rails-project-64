@@ -2,7 +2,6 @@
 en:
   comments:
     create:
-      failure: Comment could not be created
       success: Comment created successfully
   posts:
     create:

@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to resource_post, notice: I18n.t('comments.create.success')
     else
-      redirect_to resource_post, status: :unprocessable_entity, alert: I18n.t('comments.create.failure')
+      alert = @comment.errors.full_messages.join(', ')
+      redirect_to resource_post, status: :unprocessable_entity, alert:
     end
   end
 
