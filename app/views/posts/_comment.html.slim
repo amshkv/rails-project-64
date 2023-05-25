@@ -3,7 +3,7 @@ div
   .small
     = comment.user.email
     span.mx-2 |
-    = l(comment.created_at, format: :long)
+    = time_ago_in_words(comment.created_at)
 
     - if user_signed_in?
       a.link-dark.ms-3[type='button'

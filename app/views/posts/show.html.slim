@@ -6,13 +6,13 @@
     '
     = l(@post.created_at, format: :long)
 
-  p
-    - if @post.creator == current_user
+  - if @post.creator == current_user
+    p
       = link_to t('edit'), edit_post_path(@post), class: 'btn btn-primary me-2'
       = link_to t('destroy'), post_path(@post), data: { turbo_method: :delete, turbo_confirm: t('are_you_sure') },
         class: 'btn btn-danger'
 
-  h2 = t('.comments')
+  h2.mt-4 = t('.comments')
 
   - if @root_post_comments.empty?
     p = t('.not_yet')
@@ -20,6 +20,6 @@
   - if user_signed_in?
     = render 'comment_form', new_comment: @new_comment, post: @post, parent_id: nil
 
-  .mt-4
+  .mt-3
     - @root_post_comments.each do |comment|
       = render 'comment', comment:, new_comment: @new_comment
