@@ -3,9 +3,9 @@
 module ApplicationHelper
   def render_nested_comments(comment)
     render 'posts/comment', comment: do
-      comment.children.each do |c|
+      comment.children.map do |c|
         render_nested_comments(c)
-      end
+      end.join.html_safe # rubocop:disable Rails/OutputSafety
     end
   end
 end

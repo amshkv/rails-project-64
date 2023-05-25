@@ -11,9 +11,9 @@ class CommentsController < ApplicationController
     else
       @post = resource_post
       # TODO: иначе падает ошибка в кривом комменте, мб лучше `&` во вьюхе?, еще и рубокоп ругается на сложность
-      @root_post_comments = @post.comments.includes([:user]).roots
+      @root_post_comments = @post.comments.roots
       flash[:alert] = I18n.t('comments.create.failure')
-      render 'posts/show'
+      redirect_to resource_post # TODO: если делать render, то падает что не может найти partial
     end
   end
 
