@@ -23,4 +23,6 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert { post.comments.count == old_post_comments_count + 1 }
     assert { post.comments.last.content == attrs[:content] }
   end
+
+  # TODO: нужен тест на вложенные комменты? что мы им проверим, что коммент создался к родителю, а не к посту?
 end

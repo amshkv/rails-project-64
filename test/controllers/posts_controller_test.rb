@@ -22,6 +22,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get show' do
     # TODO: почему-то не работает bullet для этого теста, но срабатывает для других ситуаций
+    # UPD: стал срабатывать, только хз как починить :batya:
     get post_url(@post)
     assert_response :success
   end

@@ -48,3 +48,15 @@ deep_nested:
   user: harry
   post: one
   ancestry: <%= [ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>
+
+very_deep_nested:
+  content: very deep comment
+  user: hermione
+  post: one
+  ancestry: <%= [ActiveRecord::FixtureSet.identify(:deep_nested), ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>
+
+nested_v2:
+  content: commented comment v2
+  user: hermione
+  post: one
+  ancestry: <%= ActiveRecord::FixtureSet.identify(:with_comments) %>

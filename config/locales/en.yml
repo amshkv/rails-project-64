@@ -17,6 +17,8 @@ en:
       sign_out: Sign out
       sign_up: Sign up
   posts:
+    comment:
+      reply: reply
     edit:
       edit_post: 'Edit Post: %{title}'
     index:
@@ -25,3 +27,4 @@ en:
       new_post: New Post
     show:
       comments: Comments
+      not_yet: Not yet

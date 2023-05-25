@@ -1,5 +1,21 @@
-p.fs-5.mb-2 = comment.content
-.small
-  = comment.user.email
-  span.mx-2 |
-  = l(comment.created_at, format: :long)
+div class=class_names('ms-3': block_given?)
+  p.fs-5.mb-2 = comment.content
+  .small
+    = comment.user.email
+    span.mx-2 |
+    = l(comment.created_at, format: :long)
+
+    - if user_signed_in?
+      a.link-dark.ms-3[type='button'
+        data-bs-toggle='collapse' data-bs-target="#collapse-#{comment.id}"
+        aria={ expanded: false, controls: "collapse-#{comment.id}" }
+      ]
+        = t('.reply')
+
+  - if user_signed_in?
+    .collapse id="collapse-#{comment.id}"
+      .pt-2
+        = render 'comment_form', comment: comment.post.comments.build, post: comment.post, parent_id: comment.id
+
+  hr
+  = yield
