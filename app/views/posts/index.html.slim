@@ -4,7 +4,13 @@
     - @posts.each do |post|
       h2
         = link_to post.title, post_path(post)
-      p = post.body
+      p = truncate(post.body, length: 150, separator: ' ')
+      .small
+        = post.creator.email
+        span.mx-2 |
+        = time_ago_in_words(post.created_at)
+
       hr.my-5
+
   - else
     p = t('.no_posts')

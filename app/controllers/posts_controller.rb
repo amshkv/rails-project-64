@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :only_creator, only: %i[edit update destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.includes([:creator])
   end
 
   def show
