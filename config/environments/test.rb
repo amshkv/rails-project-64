@@ -9,7 +9,7 @@ require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   config.after_initialize do
-    Bullet.enable        = true
+    Bullet.enable        = false # temp disable bullet
     Bullet.bullet_logger = true
     Bullet.raise         = true # raise an error if n+1 query occurs
   end
