@@ -2,6 +2,6 @@
   / TODO: разобраться, как работают ошибки валидации в этой форме
   / = f.error_notification
   / = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-  = f.input :content, label: false, input_html: { placeholder: 'Comment' }
+  = f.input :content, label: false
   = f.input :parent_id, as: :hidden, input_html: { value: parent_id }
   = f.button :submit, class: 'btn-primary'

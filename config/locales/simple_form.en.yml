@@ -12,6 +12,8 @@ en:
           password: Minimum of 6 characters
     'no': 'No'
     placeholders:
+      post_comment:
+        content: Comment
       user:
         current_password: Current password
         email: Email
