@@ -43,4 +43,19 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     assert { user_like_old_count - 1 == user_like_new_count }
     assert { !post.likes.find_by(user: @user) }
   end
+
+  test 'should destroy by other user' do
+    post = posts(:three)
+    like = post_likes(:four)
+
+    user_like_old_count = post.likes.where(user: @user).count
+
+    delete post_like_url(post, like)
+    assert_response :redirect
+
+    user_like_new_count = post.likes.where(user: @user).count
+
+    assert { user_like_old_count == user_like_new_count }
+    assert { post.likes.find_by(user: @user) }
+  end
 end

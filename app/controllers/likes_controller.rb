@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_creator, only: %i[destroy]
+
   def create
     like = current_user.likes.build
     like.post = resource_post
@@ -23,5 +26,12 @@ class LikesController < ApplicationController
 
   def resource_post
     Post.find(params[:post_id])
+  end
+
+  private
+
+  def only_creator
+    like = PostLike.find(params[:id])
+    redirect_to resource_post, alert: I18n.t('likes.destroy.failure') unless like.user == current_user
   end
 end

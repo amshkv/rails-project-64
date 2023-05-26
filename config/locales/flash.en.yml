@@ -3,6 +3,9 @@ en:
   comments:
     create:
       success: Comment created successfully
+  likes:
+    destroy:
+      failure: Like could not be removed
   posts:
     create:
       failure: Post could not be created
