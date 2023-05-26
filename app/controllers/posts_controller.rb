@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @root_post_comments = @post.comments.roots
+    @comments = @post.comments.includes([:user]).arrange
     @new_comment = @post.comments.build
   end
 

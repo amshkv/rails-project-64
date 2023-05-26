@@ -14,12 +14,12 @@
 
   h2.mt-4 = t('.comments')
 
-  - if @root_post_comments.empty?
+  - if @comments.empty?
     p = t('.not_yet')
 
   - if user_signed_in?
     = render 'comment_form', new_comment: @new_comment, post: @post, parent_id: nil
 
   .mt-3
-    - @root_post_comments.each do |comment|
+    - @comments.each_key do |comment|
       = render 'comment', comment:, new_comment: @new_comment
