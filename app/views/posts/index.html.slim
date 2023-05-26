@@ -6,9 +6,11 @@
         = link_to post.title, post_path(post)
       p = truncate(post.body, length: 150, separator: ' ')
       .small
+        span.d-inline-block = t('.likes_count', count: post.likes.count)
+        span.mx-2 |
         = post.creator.email
         span.mx-2 |
-        = time_ago_in_words(post.created_at)
+        span.d-inline-block = time_ago_in_words(post.created_at)
 
       hr.my-5
 

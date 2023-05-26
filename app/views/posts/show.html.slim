@@ -1,10 +1,29 @@
 .container.my-5
   h1 = @post.title
   p = @post.body
-  p
-    = @post.creator.email
-    '
-    = l(@post.created_at, format: :long)
+  .d-flex.justify-content-between.mb-3
+    .me-3
+      span = @post.creator.email
+      span.mx-2 |
+      span.d-inline-block = l(@post.created_at, format: :long)
+
+    .d-inline-block.text-nowrap
+      - if user_signed_in?
+        - if @like_of_current_user
+          = link_to post_like_path(@post, @like_of_current_user),
+            class: 'link-dark text-decoration-none', 'data-turbo-method': :delete do
+            span.me-1
+              = @post.likes.count
+            span.bi.bi-hand-thumbs-up-fill
+        - else
+          = link_to post_likes_path(@post), class: 'link-dark text-decoration-none', 'data-turbo-method': :post do
+            span.me-1
+              = @post.likes.count
+            span.bi.bi-hand-thumbs-up
+      - else
+        span.me-1
+          = @post.likes.count
+        span.bi.bi-hand-thumbs-up
 
   - if @post.creator == current_user
     p

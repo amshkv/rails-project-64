@@ -26,6 +26,7 @@ class Post < ApplicationRecord
   belongs_to :category
   belongs_to :creator, class_name: 'User'
   has_many :comments, dependent: :destroy, class_name: 'PostComment'
+  has_many :likes, dependent: :destroy, class_name: 'PostLike'
 
   validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true, length: { minimum: 30 }

@@ -22,6 +22,9 @@ en:
     edit:
       edit_post: 'Edit Post: %{title}'
     index:
+      likes_count:
+        one: 'Like: %{count}'
+        other: 'Likes: %{count}'
       no_posts: No posts yet
     new:
       new_post: New Post

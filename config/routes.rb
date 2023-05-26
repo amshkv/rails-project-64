@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'devise/sessions',
                                     registrations: 'devise/registrations' }
   root 'posts#index'
-  resources :posts, except: %i[index] do
+  resources :posts, except: :index do
     resources :comments, only: :create
+    resources :likes, only: %i[create destroy]
   end
 end
