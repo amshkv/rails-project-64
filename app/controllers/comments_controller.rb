@@ -2,12 +2,12 @@
 
 class CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.build(permitted_params)
-    @comment.post = resource_post
-    if @comment.save
+    comment = current_user.comments.build(permitted_params)
+    comment.post = resource_post
+    if comment.save
       redirect_to resource_post, notice: I18n.t('comments.create.success')
     else
-      alert = @comment.errors.full_messages.join(', ')
+      alert = comment.errors.full_messages.join(', ')
       redirect_to resource_post, status: :unprocessable_entity, alert:
     end
   end
