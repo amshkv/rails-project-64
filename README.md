@@ -9,7 +9,7 @@
 
 ## Requirements
 
-- Ruby 3.2.2
+- Ruby 3.1.2
 - NodeJS 16 and later
 - Yarn
 - Gitmoji CLI
