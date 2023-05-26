@@ -7,6 +7,7 @@ AllCops:
     rubocop-rails: true
     rubocop-performance: true
     rubocop-rake: true
+    rubocop-capybara: true
 
 require:
   - rubocop-rails
