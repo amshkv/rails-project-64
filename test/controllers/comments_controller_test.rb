@@ -17,7 +17,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
       parent_id: parent.id
     }
 
-    post post_comments_path(@post), params: { post_comment: attrs }
+    post post_comments_url(@post), params: { post_comment: attrs }
     assert_response :redirect
 
     @post.reload
@@ -33,7 +33,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
       parent_id: nil
     }
 
-    post post_comments_path(@post), params: { post_comment: attrs }
+    post post_comments_url(@post), params: { post_comment: attrs }
     assert_response :redirect
 
     @post.reload
