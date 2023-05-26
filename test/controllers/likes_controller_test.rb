@@ -31,11 +31,11 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get destroy like' do
     post = posts(:one)
-    comment = post_comments(:one)
+    like = post_likes(:one)
 
     user_like_old_count = post.likes.where(user: @user).count
 
-    delete post_like_url(post, comment)
+    delete post_like_url(post, like)
     assert_response :redirect
 
     user_like_new_count = post.likes.where(user: @user).count
