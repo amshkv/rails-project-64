@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, only: %i[create destroy edit new update]
   before_action :only_creator, only: %i[edit update destroy]
 
   def index
