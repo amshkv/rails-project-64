@@ -27,10 +27,8 @@ jobs:
         node-version: '16'
         cache: 'yarn'
     - name: Install dependencies
-      run: yarn install
+      run: yarn install && yarn build:css
     - name: Run lint
       run: make lint
-    - name: Compile assets # NOTE: без этого шага не завелось, но внутри есть команда yarn install, мб поднять выше?
-      run: bundle exec rake assets:precompile
     - name: Run test
       run: make test
