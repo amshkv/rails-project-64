@@ -24,11 +24,11 @@ class LikesController < ApplicationController
     redirect_to resource_post
   end
 
+  private
+
   def resource_post
     @resource_post ||= Post.find(params[:post_id])
   end
-
-  private
 
   def only_creator
     like = PostLike.find(params[:id])
