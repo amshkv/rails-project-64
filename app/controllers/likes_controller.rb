@@ -25,7 +25,7 @@ class LikesController < ApplicationController
   end
 
   def resource_post
-    Post.find(params[:post_id])
+    @resource_post ||= Post.find(params[:post_id])
   end
 
   private
