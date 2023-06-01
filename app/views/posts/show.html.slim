@@ -13,16 +13,16 @@
           = link_to post_like_path(@post, @like_of_current_user),
             class: 'link-dark text-decoration-none', 'data-turbo-method': :delete do
             span.me-1
-              = @post.likes.count
+              = @post.likes.size
             span.bi.bi-hand-thumbs-up-fill
         - else
           = link_to post_likes_path(@post), class: 'link-dark text-decoration-none', 'data-turbo-method': :post do
             span.me-1
-              = @post.likes.count
+              = @post.likes.size
             span.bi.bi-hand-thumbs-up
       - else
         span.me-1
-          = @post.likes.count
+          = @post.likes.size
         span.bi.bi-hand-thumbs-up
 
   - if @post.creator == current_user

@@ -6,7 +6,7 @@
         = link_to post.title, post_path(post)
       p = truncate(post.body, length: 150, separator: ' ')
       .small
-        span.d-inline-block = t('.likes_count', count: post.likes.count)
+        span.d-inline-block = t('.likes_count', count: post.likes.size)
         span.mx-2 |
         = post.creator.email
         span.mx-2 |
