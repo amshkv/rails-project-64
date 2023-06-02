@@ -2,7 +2,6 @@
 
 class LikesController < ApplicationController
   before_action :authenticate_user!
-  before_action :only_creator, only: %i[destroy]
 
   def create
     like = current_user.likes.build
@@ -19,6 +18,8 @@ class LikesController < ApplicationController
   def destroy
     like = PostLike.find(params[:id])
 
+    redirect_to(resource_post, alert: I18n.t('likes.destroy.failure')) and return unless like_author?(like)
+
     like.destroy
 
     redirect_to resource_post
@@ -30,8 +31,7 @@ class LikesController < ApplicationController
     @resource_post ||= Post.find(params[:post_id])
   end
 
-  def only_creator
-    like = PostLike.find(params[:id])
-    redirect_to resource_post, alert: I18n.t('likes.destroy.failure') unless like.user == current_user
+  def like_author?(like)
+    like.user == current_user
   end
 end
