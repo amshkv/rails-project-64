@@ -12,7 +12,7 @@ en:
       success: Post created successfully
     destroy:
       success: Post deleted successfully
-    only_creator: Post can only be edited or deleted by its creator
+    only_author: Post can only be edited or deleted by its author
     update:
       failure: Post could not be updated
       success: Post updated successfully

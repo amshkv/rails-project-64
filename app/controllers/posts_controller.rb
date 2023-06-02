@@ -2,7 +2,6 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy edit new update]
-  before_action :only_creator, only: %i[edit update destroy]
 
   def index
     @posts = Post.all.includes([:creator]).order(id: :desc)
@@ -21,6 +20,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+
+    redirect_to(@post, alert: I18n.t('posts.only_author')) and return unless author?(@post)
   end
 
   def create
@@ -36,6 +37,9 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
+    # NOTE: кажется правильным отдавать 403? и редиректить? но кажется рельса в одновременность не умеет?
+    redirect_to(@post, alert: I18n.t('posts.only_author')) and return unless author?(@post)
+
     if @post.update(permitted_params)
       redirect_to @post, notice: I18n.t('posts.update.success')
     else
@@ -45,6 +49,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+
+    redirect_to(@post, alert: I18n.t('posts.only_author')) and return unless author?(@post)
 
     @post.destroy
 
@@ -57,9 +63,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body, :category_id)
   end
 
-  def only_creator
-    @post = Post.find(params[:id])
-
-    redirect_to root_path, alert: I18n.t('posts.only_creator') unless @post.creator == current_user
+  def author?(post)
+    post.creator == current_user
   end
 end
