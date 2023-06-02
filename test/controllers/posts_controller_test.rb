@@ -5,9 +5,11 @@ require 'test_helper'
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @post = posts(:one)
+    @post_another_author = posts(:three)
     user = users(:harry)
     sign_in(user)
 
+    # FIXME: с такими @attrs может быть совпадение с фикстурами, и тогда тест на update не сработает
     @attrs = {
       title: Faker::Movies::HarryPotter.book,
       body: [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' '),
@@ -60,5 +62,31 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
 
     assert { !Post.find_by(id: @post.id) }
+  end
+
+  test 'should get edit with another author' do
+    get edit_post_url(@post_another_author)
+    assert_response :redirect
+  end
+
+  test 'should get update with another author' do
+    title = @post_another_author.title
+    body = @post_another_author.body
+
+    patch post_url(@post_another_author), params: { post: @attrs }
+
+    assert_response :redirect
+
+    @post_another_author.reload
+
+    assert { @post_another_author.title == title }
+    assert { @post_another_author.body == body }
+  end
+
+  test 'should get destroy with another author' do
+    delete post_url(@post_another_author)
+    assert_response :redirect
+
+    assert { Post.find_by(id: @post_another_author.id) }
   end
 end
