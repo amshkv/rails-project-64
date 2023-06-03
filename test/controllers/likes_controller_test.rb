@@ -11,36 +11,24 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   test 'should get add like' do
     post = posts(:hermione)
 
-    user_like_old_count = post.likes.where(user: @user).count
-
     post post_likes_url(post)
     assert_response :redirect
 
-    user_like_new_count = post.likes.where(user: @user).count
-
-    assert { user_like_old_count + 1 == user_like_new_count }
     assert { post.likes.find_by(user: @user) }
 
     post post_likes_url(post)
     assert_response 422
 
-    double_user_like_count = post.likes.where(user: @user).count
-
-    assert { user_like_new_count == double_user_like_count }
+    assert { post.likes.where(user: @user).one? }
   end
 
   test 'should get destroy like' do
     post = posts(:harry)
     like = post_likes(:harry)
 
-    user_like_old_count = post.likes.where(user: @user).count
-
     delete post_like_url(post, like)
     assert_response :redirect
 
-    user_like_new_count = post.likes.where(user: @user).count
-
-    assert { user_like_old_count - 1 == user_like_new_count }
     assert { !post.likes.find_by(user: @user) }
   end
 
