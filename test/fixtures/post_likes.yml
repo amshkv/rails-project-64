@@ -20,18 +20,10 @@
 #  user_id  (user_id => users.id)
 #
 
-one:
-  post: one
+harry:
+  post: harry
   user: harry
 
-two:
-  post: two
-  user: hermione
-
-three:
-  post: three
-  user: harry
-
-four:
-  post: three
+hermione:
+  post: harry
   user: hermione

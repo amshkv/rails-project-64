@@ -4,8 +4,8 @@ require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @post = posts(:one)
-    @post_another_author = posts(:three)
+    @post = posts(:harry)
+    @post_another_author = posts(:hermione)
     user = users(:harry)
     sign_in(user)
 

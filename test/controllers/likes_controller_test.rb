@@ -9,7 +9,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get add like' do
-    post = posts(:two)
+    post = posts(:hermione)
 
     user_like_old_count = post.likes.where(user: @user).count
 
@@ -30,8 +30,8 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get destroy like' do
-    post = posts(:one)
-    like = post_likes(:one)
+    post = posts(:harry)
+    like = post_likes(:harry)
 
     user_like_old_count = post.likes.where(user: @user).count
 
@@ -45,8 +45,8 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy by other user' do
-    post = posts(:one)
-    like = post_likes(:two)
+    post = posts(:harry)
+    like = post_likes(:hermione)
 
     delete post_like_url(post, like)
     assert_response :redirect
