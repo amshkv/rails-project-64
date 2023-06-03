@@ -30,4 +30,5 @@ en:
       new_post: New Post
     show:
       comments: Comments
+      main_page: Main
       not_yet: Not yet
