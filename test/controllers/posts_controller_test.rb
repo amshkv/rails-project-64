@@ -9,7 +9,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     user = users(:harry)
     sign_in(user)
 
-    # FIXME: с такими @attrs может быть совпадение с фикстурами, и тогда тест на update не сработает
+    # FIXME: с такими @attrs может быть совпадение с фикстурами, и тогда тест на update не сработает?
     @attrs = {
       title: Faker::Movies::HarryPotter.book,
       body: [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' '),
@@ -36,7 +36,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     post posts_url, params: { post: @attrs }
     assert_response :redirect
 
-    post = Post.find_by(title: @attrs[:title])
+    post = Post.find_by(@attrs)
     assert { post }
   end
 
