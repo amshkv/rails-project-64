@@ -19,5 +19,5 @@ div
   hr
 
   .ms-3
-    - comment.children.map do |c|
-      = render 'comment', comment: c, new_comment:
+    - nested_comments.each_pair do |c, nc|
+      = render 'comment', comment: c, nested_comments: nc, new_comment:

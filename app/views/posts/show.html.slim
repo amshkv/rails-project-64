@@ -45,5 +45,5 @@
     = render 'comment_form', new_comment: @new_comment, post: @post, parent_id: nil
 
   .mt-3
-    - @comments.each_key do |comment|
-      = render 'comment', comment:, new_comment: @new_comment
+    - @comments.each_pair do |comment, nested_comments|
+      = render 'comment', comment:, nested_comments:, new_comment: @new_comment
