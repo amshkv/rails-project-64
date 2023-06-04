@@ -20,10 +20,10 @@
 #  user_id  (user_id => users.id)
 #
 
-harry:
-  post: harry
-  user: harry
+full:
+  post: full
+  user: full
 
-hermione:
-  post: harry
-  user: hermione
+another:
+  post: full
+  user: another

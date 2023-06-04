@@ -4,12 +4,12 @@ require 'test_helper'
 
 class LikesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:harry)
+    @user = users(:full)
     sign_in(@user)
   end
 
   test 'should get add like' do
-    post = posts(:hermione)
+    post = posts(:without_likes)
 
     post post_likes_url(post)
     assert_response :redirect
@@ -18,8 +18,8 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get destroy like' do
-    post = posts(:harry)
-    like = post_likes(:harry)
+    post = posts(:full)
+    like = post_likes(:full)
 
     delete post_like_url(post, like)
     assert_response :redirect
@@ -30,8 +30,8 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy by other user' do
-    post = posts(:harry)
-    like = post_likes(:hermione)
+    post = posts(:full)
+    like = post_likes(:another)
 
     delete post_like_url(post, like)
     assert_response :redirect

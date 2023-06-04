@@ -4,9 +4,9 @@ require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @post = posts(:harry)
-    @post_another_author = posts(:hermione)
-    user = users(:harry)
+    @post = posts(:full)
+    @post_another_author = posts(:with_another_author)
+    user = users(:full)
     sign_in(user)
 
     # FIXME: с такими @attrs может быть совпадение с фикстурами, и тогда тест на update не сработает?
@@ -36,8 +36,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     post posts_url, params: { post: @attrs }
     assert_response :redirect
 
-    post = Post.find_by(@attrs)
-    assert { post }
+    assert { Post.find_by(@attrs) }
   end
 
   test 'should get edit' do

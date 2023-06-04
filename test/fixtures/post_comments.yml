@@ -21,42 +21,25 @@
 #  post_id  (post_id => posts.id)
 #  user_id  (user_id => users.id)
 #
-
-harry:
-  content: <%= Faker::Movies::HarryPotter.quote %>
-  post: harry
-  user: harry
-
-hermione:
-  content: <%= Faker::Movies::HarryPotter.quote %>
-  post: hermione
-  user: hermione
-
 with_comments:
   content: this is comment with comments
-  user: harry
-  post: harry
+  user: full
+  post: full
 
 nested:
   content: commented comment
-  user: hermione
-  post: harry
+  user: another
+  post: full
   ancestry: <%= ActiveRecord::FixtureSet.identify(:with_comments) %>
 
 deep_nested:
   content: deep comment
-  user: harry
-  post: harry
+  user: full
+  post: full
   ancestry: <%= [ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>
-
-very_deep_nested:
-  content: very deep comment
-  user: hermione
-  post: harry
-  ancestry: <%= [ActiveRecord::FixtureSet.identify(:deep_nested), ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>
 
 nested_v2:
   content: commented comment v2
-  user: hermione
-  post: harry
+  user: another
+  post: full
   ancestry: <%= ActiveRecord::FixtureSet.identify(:with_comments) %>

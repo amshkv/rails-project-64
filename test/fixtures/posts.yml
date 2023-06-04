@@ -22,14 +22,20 @@
 #  creator_id   (creator_id => users.id)
 #
 
-harry:
+full:
   title: <%= Faker::Movies::HarryPotter.book %>
   body: <%= [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' ') %>
   category: spells
-  creator: harry
+  creator: full
 
-hermione:
+with_another_author:
   title: <%= Faker::Movies::HarryPotter.book %>
   body: <%= [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' ') %>
   category: hocus_pocus
-  creator: hermione
+  creator: another
+
+without_likes:
+  title: <%= Faker::Movies::HarryPotter.book %>
+  body: <%= [Faker::Movies::HarryPotter.quote, Faker::Movies::HarryPotter.quote].join(' ') %>
+  category: magic_news
+  creator: full
