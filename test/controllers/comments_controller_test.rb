@@ -13,7 +13,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     parent = @post.comments.first
 
     attrs = {
-      content: Faker::Movies::HarryPotter.quote,
+      content: Faker::Movie.quote,
       parent_id: parent.id
     }
 

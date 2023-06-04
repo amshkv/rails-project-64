@@ -8,7 +8,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     sign_in(@user)
   end
 
-  test 'should get add like' do
+  test 'should add like' do
     post = posts(:without_likes)
 
     post post_likes_url(post)
@@ -17,19 +17,17 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     assert { post.likes.find_by(user: @user) }
   end
 
-  test 'should get destroy like' do
+  test 'should destroy like' do
     post = posts(:full)
     like = post_likes(:full)
 
     delete post_like_url(post, like)
     assert_response :redirect
 
-    # NOTE: можно так проверять, можно сяк, не знаю как правильнее и точнее
-    assert_raises { PostLike.find(like.id) }
     assert { !PostLike.find_by(id: like.id) }
   end
 
-  test 'should destroy by other user' do
+  test 'should not destroy by other user' do
     post = posts(:full)
     like = post_likes(:another)
 
