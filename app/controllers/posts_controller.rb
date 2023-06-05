@@ -37,7 +37,6 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    # NOTE: кажется правильным отдавать 403? и редиректить? но кажется рельса в одновременность не умеет?
     redirect_to(@post, alert: I18n.t('posts.only_author')) and return unless author?(@post)
 
     if @post.update(permitted_params)
