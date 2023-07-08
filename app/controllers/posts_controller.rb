@@ -30,7 +30,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: I18n.t('posts.create.success')
     else
-      render :new, status: :unprocessable_entity, alert: I18n.t('posts.create.failure')
+      flash[:alert].now = I18n.t('posts.create.failure')
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -42,7 +43,8 @@ class PostsController < ApplicationController
     if @post.update(permitted_params)
       redirect_to @post, notice: I18n.t('posts.update.success')
     else
-      render :edit, status: :unprocessable_entity, alert: I18n.t('posts.update.failure')
+      flash[:alert].now = I18n.t('posts.update.failure')
+      render :edit, status: :unprocessable_entity
     end
   end
 
